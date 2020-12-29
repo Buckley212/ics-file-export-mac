@@ -1,0 +1,25 @@
+# IDE
+.idea
+
+# VSCode
+.vscode
+.history
+
+# npm
+node_modules
+dist
+npm-debug.log
+
+# Distribute directory
+dist*/
+selenium-debug.log
+coverage
+
+# Ignore annoying DS files
+.DS_Store
+*.DS_Store
+**.DS_Store
+
+# jest
+jest
+
