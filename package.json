@@ -1,6 +1,6 @@
 {
   "name": "ics-file-export",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A tool to generate ics files",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
