@@ -1,21 +1,32 @@
 ics-file-export
 ============
 
-Generate .ics file in client side.
+> Generate .ics file in client.
 
+
+## installation
+
+```sh
+npm install ics-file-export
 ```
+
+## usage
+
+```js
 import { ics } from 'ics-file-export';
 
 const cal = ics();
 
 cal.addEvent(
-      title,
-      description,
-      location
-      startDate,
-      endDate
+      'Event Title',
+      'Event description',
+      'Event location',
+      '13/1/2021 5:30 pm', 
+      '13/1/2021 6:00 pm')
     );
 
+// initiates download in client
+cal.download()
 ```
 
 
