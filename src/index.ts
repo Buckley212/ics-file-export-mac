@@ -84,7 +84,6 @@ export const ics = (uidDomain = 'default', prodId = 'Calendar') => {
       location: string,
       begin: string,
       stop: string,
-      rrule?: RecurrenceeRule | { rrule: string },
       mailTo?: string,
       userName?: string,
     ) {

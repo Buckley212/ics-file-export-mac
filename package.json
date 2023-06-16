@@ -1,5 +1,5 @@
 {
-  "name": "ics-file-export",
+  "name": "ics-file-export-mac",
   "version": "1.0.1",
   "description": "A tool to generate ics files",
   "main": "dist/index.js",
