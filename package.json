@@ -1,6 +1,6 @@
 {
   "name": "ics-file-export-mac",
-  "version": "1.0.1",
+  "version": "1.0.12",
   "description": "A tool to generate ics files",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

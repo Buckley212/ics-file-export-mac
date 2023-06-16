@@ -84,6 +84,7 @@ export const ics = (uidDomain = 'default', prodId = 'Calendar') => {
       location: string,
       begin: string,
       stop: string,
+      // rrule?: RecurrenceeRule | { rrule: string },
       mailTo?: string,
       userName?: string,
     ) {
@@ -99,9 +100,9 @@ export const ics = (uidDomain = 'default', prodId = 'Calendar') => {
       }
 
       // validate rrule
-      if (rrule) {
-        validateRRule(rrule);
-      }
+      // if (rrule) {
+      //   validateRRule(rrule);
+      // }
 
       //TODO add time and time zone? use moment to format?
       const start_date = new Date(begin);
@@ -147,34 +148,34 @@ export const ics = (uidDomain = 'default', prodId = 'Calendar') => {
       const now = now_year + now_month + now_day + now_time;
 
       // recurrence rrule vars
-      let rruleString;
-      if (rrule) {
-        if ('rrule' in rrule) {
-          rruleString = rrule.rrule;
-        } else {
-          rruleString = 'rrule:FREQ=' + rrule.freq;
+      // let rruleString;
+      // if (rrule) {
+      //   if ('rrule' in rrule) {
+      //     rruleString = rrule.rrule;
+      //   } else {
+      //     rruleString = 'rrule:FREQ=' + rrule.freq;
 
-          if (rrule.until) {
-            const uDate = new Date(Date.parse(rrule.until)).toISOString();
-            rruleString +=
-              ';UNTIL=' +
-              uDate.substring(0, uDate.length - 13).replace(/[-]/g, '') +
-              '000000Z';
-          }
+      //     if (rrule.until) {
+      //       const uDate = new Date(Date.parse(rrule.until)).toISOString();
+      //       rruleString +=
+      //         ';UNTIL=' +
+      //         uDate.substring(0, uDate.length - 13).replace(/[-]/g, '') +
+      //         '000000Z';
+      //     }
 
-          if (rrule.interval) {
-            rruleString += ';INTERVAL=' + rrule.interval;
-          }
+      //     if (rrule.interval) {
+      //       rruleString += ';INTERVAL=' + rrule.interval;
+      //     }
 
-          if (rrule.count) {
-            rruleString += ';COUNT=' + rrule.count;
-          }
+      //     if (rrule.count) {
+      //       rruleString += ';COUNT=' + rrule.count;
+      //     }
 
-          if (rrule.byday && rrule.byday.length > 0) {
-            rruleString += ';BYDAY=' + rrule.byday.join(',');
-          }
-        }
-      }
+      //     if (rrule.byday && rrule.byday.length > 0) {
+      //       rruleString += ';BYDAY=' + rrule.byday.join(',');
+      //     }
+      //   }
+      // }
 
       const calendarEvent = [
         'BEGIN:VEVENT',
@@ -191,9 +192,9 @@ export const ics = (uidDomain = 'default', prodId = 'Calendar') => {
         'END:VEVENT',
       ];
 
-      if (rruleString) {
-        calendarEvent.splice(4, 0, rruleString);
-      }
+      // if (rruleString) {
+      //   calendarEvent.splice(4, 0, rruleString);
+      // }
 
       const eventStr = calendarEvent.join(SEPARATOR);
 
