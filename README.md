@@ -13,7 +13,7 @@ npm install ics-file-export
 ## usage
 
 ```js
-import { ics } from 'ics-file-export';
+import { ics } from 'ics-file-export-mac';
 
 const cal = ics();
 
@@ -22,7 +22,9 @@ cal.addEvent(
       'Event description',
       'Event location',
       '13/1/2021 5:30 pm', 
-      '13/1/2021 6:00 pm')
+      '13/1/2021 6:00 pm'),
+      'email',
+      'name'
     );
 
 // initiates download in client
