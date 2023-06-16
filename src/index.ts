@@ -85,6 +85,8 @@ export const ics = (uidDomain = 'default', prodId = 'Calendar') => {
       begin: string,
       stop: string,
       rrule?: RecurrenceeRule | { rrule: string },
+      mailTo?: string,
+      userName?: string,
     ) {
       // I'm not in the mood to make these optional... So they are all required
       if (
@@ -180,6 +182,7 @@ export const ics = (uidDomain = 'default', prodId = 'Calendar') => {
         'UID:' + calendarEvents.length + '@' + uidDomain,
         'CLASS:PUBLIC',
         'DESCRIPTION:' + description,
+        'ATTENDEE;PARTSTAT=ACCEPTED;CN=' + userName + 'EMAIL=' + mailTo + ':MAILTO:' + mailTo,
         'DTSTAMP;VALUE=DATE-TIME:' + now,
         'DTSTART;VALUE=DATE-TIME:' + start,
         'DTEND;VALUE=DATE-TIME:' + end,

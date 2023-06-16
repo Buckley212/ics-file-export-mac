@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/itainoam/ics-file-export.git"
+    "url": "git+https://github.com/Buckley212/ics-file-export-mac.git"
   },
   "keywords": [
     "ics",
@@ -24,9 +24,9 @@
   "author": "Itai Noam",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/itainoam/ics-file-export/issues"
+    "url": "https://github.com/Buckley212/ics-file-export-mac/issues"
   },
-  "homepage": "https://github.com/itainoam/ics-file-export#readme",
+  "homepage": "https://github.com/Buckley212/ics-file-export-mac#readme",
   "devDependencies": {
     "@types/file-saver": "^2.0.1",
     "@types/jest": "^26.0.19",
