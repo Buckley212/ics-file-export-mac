@@ -12,51 +12,51 @@ interface RecurrenceeRule {
 }
 
 export const ics = (uidDomain = 'default', prodId = 'Calendar') => {
-  const validateRRule = (rrule: RecurrenceeRule | { rrule: string }) => {
-    if (!('rrule' in rrule)) {
-      if (
-        rrule.freq !== 'YEARLY' &&
-        rrule.freq !== 'MONTHLY' &&
-        rrule.freq !== 'WEEKLY' &&
-        rrule.freq !== 'DAILY'
-      ) {
-        throw "Recurrence rrule frequency must be provided and be one of the following: 'YEARLY', 'MONTHLY', 'WEEKLY', or 'DAILY'";
-      }
+  // const validateRRule = (rrule: RecurrenceeRule | { rrule: string }) => {
+  //   if (!('rrule' in rrule)) {
+  //     if (
+  //       rrule.freq !== 'YEARLY' &&
+  //       rrule.freq !== 'MONTHLY' &&
+  //       rrule.freq !== 'WEEKLY' &&
+  //       rrule.freq !== 'DAILY'
+  //     ) {
+  //       throw "Recurrence rrule frequency must be provided and be one of the following: 'YEARLY', 'MONTHLY', 'WEEKLY', or 'DAILY'";
+  //     }
 
-      if (rrule.until) {
-        if (isNaN(Date.parse(rrule.until))) {
-          throw "Recurrence rrule 'until' must be a valid date string";
-        }
-      }
+  //     if (rrule.until) {
+  //       if (isNaN(Date.parse(rrule.until))) {
+  //         throw "Recurrence rrule 'until' must be a valid date string";
+  //       }
+  //     }
 
-      if (rrule.interval) {
-        if (Number.isInteger(rrule.interval)) {
-          throw "Recurrence rrule 'interval' must be an integer";
-        }
-      }
+  //     if (rrule.interval) {
+  //       if (Number.isInteger(rrule.interval)) {
+  //         throw "Recurrence rrule 'interval' must be an integer";
+  //       }
+  //     }
 
-      if (rrule.count) {
-        if (Number.isInteger(rrule.count)) {
-          throw "Recurrence rrule 'count' must be an integer";
-        }
-      }
+  //     if (rrule.count) {
+  //       if (Number.isInteger(rrule.count)) {
+  //         throw "Recurrence rrule 'count' must be an integer";
+  //       }
+  //     }
 
-      if (typeof rrule.byday !== 'undefined') {
-        if (Object.prototype.toString.call(rrule.byday) !== '[object Array]') {
-          throw "Recurrence rrule 'byday' must be an array";
-        }
+  //     if (typeof rrule.byday !== 'undefined') {
+  //       if (Object.prototype.toString.call(rrule.byday) !== '[object Array]') {
+  //         throw "Recurrence rrule 'byday' must be an array";
+  //       }
 
-        if (rrule.byday.length > 7) {
-          throw "Recurrence rrule 'byday' array must not be longer than the 7 days in a week";
-        }
+  //       if (rrule.byday.length > 7) {
+  //         throw "Recurrence rrule 'byday' array must not be longer than the 7 days in a week";
+  //       }
 
-        // Filter any possible repeats
-        rrule.byday = rrule.byday.filter(function (elem, pos) {
-          return rrule.byday.indexOf(elem) === pos;
-        });
-      }
-    }
-  };
+  //       // Filter any possible repeats
+  //       rrule.byday = rrule.byday.filter(function (elem, pos) {
+  //         return rrule.byday.indexOf(elem) === pos;
+  //       });
+  //     }
+  //   }
+  // };
 
   const SEPARATOR = navigator.appVersion.indexOf('Win') !== -1 ? '\r\n' : '\n';
   const calendarEvents: String[] = [];
@@ -182,7 +182,7 @@ export const ics = (uidDomain = 'default', prodId = 'Calendar') => {
         'UID:' + calendarEvents.length + '@' + uidDomain,
         'CLASS:PUBLIC',
         'DESCRIPTION:' + description,
-        'ATTENDEE;PARTSTAT=ACCEPTED;CN=' + userName + 'EMAIL=' + mailTo + ':MAILTO:' + mailTo,
+        'ATTENDEE;PARTSTAT=ACCEPTED;CN=' + userName + 'EMAIL="' + mailTo + '":MAILTO:' + mailTo,
         'DTSTAMP;VALUE=DATE-TIME:' + now,
         'DTSTART;VALUE=DATE-TIME:' + start,
         'DTEND;VALUE=DATE-TIME:' + end,
