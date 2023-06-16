@@ -182,7 +182,7 @@ export const ics = (uidDomain = 'default', prodId = 'Calendar') => {
         'UID:' + calendarEvents.length + '@' + uidDomain,
         'CLASS:PUBLIC',
         'DESCRIPTION:' + description,
-        'ATTENDEE;PARTSTAT=ACCEPTED;CN=' + userName + 'EMAIL="' + mailTo + '":MAILTO:' + mailTo,
+        'ATTENDEE;PARTSTAT=ACCEPTED;CN=' + `"${userName}"` + 'EMAIL=' + mailTo + ':MAILTO:' + mailTo,
         'DTSTAMP;VALUE=DATE-TIME:' + now,
         'DTSTART;VALUE=DATE-TIME:' + start,
         'DTEND;VALUE=DATE-TIME:' + end,
