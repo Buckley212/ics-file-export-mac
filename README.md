@@ -1,4 +1,4 @@
-ics-file-export
+ics-file-export-mac
 ============
 
 > Generate .ics file in client.
@@ -7,7 +7,7 @@ ics-file-export
 ## installation
 
 ```sh
-npm install ics-file-export
+npm install ics-file-export-mac
 ```
 
 ## usage
